@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { site } from "../data/site";
+import { talks } from "../data/talks";
 import { getDevtoPosts } from "../lib/devto";
 import { formatDate } from "../lib/format";
 
@@ -13,6 +14,10 @@ const posts = (await getCollection("posts"))
   );
 
 const devtoPosts = await getDevtoPosts(6);
+const featuredTalks = [...talks]
+  .filter((talk) => talk.featured)
+  .sort((left, right) => new Date(right.date).getTime() - new Date(left.date).getTime())
+  .slice(0, 6);
 const pageTitle = `${site.title} — Cloud, AI & Engineering`;
 const pageDescription =
   "Cloud, AI, and engineering writing from Matias Kreder on agentic AI, platform engineering, AWS, and practical software delivery.";
@@ -39,10 +44,9 @@ const pageUrl = new URL("/", site.url).toString();
   <section class="section">
     <div class="container">
       <p class="hero-greeting">Hey, I'm Matias</p>
-      <h1 class="hero-title">I write about cloud, AI,<br/>and building software<br/>that ships.</h1>
+      <h1 class="hero-title">I share ideas about cloud, AI,<br/>and building software<br/>that ships.</h1>
       <p class="hero-desc">
-        CTO, AWS Community Builder, and professor based in Buenos Aires.
-        I write about agentic AI, platform engineering, and practical cloud delivery.
+        CTO, AWS Community Builder, AWS User Group Leader, DeepRacer finalist, and professor based in Buenos Aires.
       </p>
     </div>
   </section>
@@ -83,6 +87,31 @@ const pageUrl = new URL("/", site.url).toString();
       )}
     </div>
   </section>
+
+  {featuredTalks.length > 0 && (
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Community</h2>
+          <a class="section-link" href="/talks">View all &rarr;</a>
+        </div>
+        <div class="post-list">
+          {featuredTalks.map((talk) => (
+            <a class="post-item talk-item" href={talk.url} target="_blank" rel="noreferrer">
+              <div class="talk-location">{talk.location}</div>
+              <div class="post-item-title">{talk.title}</div>
+              <div class="post-item-desc">{talk.summary}</div>
+              <div class="post-item-meta">
+                <span>{formatDate(talk.date)}</span>
+                <span>{talk.activityType}</span>
+                <span>{talk.language}</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
 
   <!-- Archive -->
   {posts.length > 0 && (
@@ -145,5 +174,19 @@ const pageUrl = new URL("/", site.url).toString();
     border: 1px dashed var(--border);
     border-radius: var(--radius);
     text-align: center;
+  }
+
+  .talk-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+
+  .talk-location {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
   }
 </style>

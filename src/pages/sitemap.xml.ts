@@ -16,7 +16,8 @@ export const GET: APIRoute = async () => {
   const staticPages = [
     renderUrl(new URL("/", site.url).toString()),
     renderUrl(new URL("/about/", site.url).toString()),
-    renderUrl(new URL("/blog/", site.url).toString())
+    renderUrl(new URL("/blog/", site.url).toString()),
+    renderUrl(new URL("/talks/", site.url).toString())
   ];
 
   const postPages = posts.map((post) => {

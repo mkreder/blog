@@ -27,3 +27,17 @@ export type Certification = {
   featured?: boolean;
   credlyUrl?: string;
 };
+
+export type TalkEntry = {
+  date: string;
+  title: string;
+  summary: string;
+  topic: string;
+  activityType: string;
+  deliveryMode: "Online" | "In Person";
+  url: string;
+  language: string;
+  location: string;
+  featured?: boolean;
+  sourceLabel?: string;
+};

@@ -9,7 +9,7 @@ export const site: SiteMetadata = {
   links: [
     { label: "LinkedIn", href: "https://www.linkedin.com/in/mkreder" },
     { label: "dev.to", href: "https://dev.to/mkreder" },
-    { label: "community.aws", href: "https://community.aws/@mkreder" }
+    { label: "AWS Builder Center", href: "https://community.aws/@mkreder" }
   ]
 };
 

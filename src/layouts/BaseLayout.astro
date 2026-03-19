@@ -63,6 +63,7 @@ const jsonLdItems = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
         <a class="logo" href="/">MK</a>
         <nav>
           <a href="/" class:list={[{ active: currentPath === "/" }]}>Home</a>
+          <a href="/talks" class:list={[{ active: currentPath === "/talks/" }]}>Community</a>
           <a href="/blog" class:list={[{ active: currentPath.startsWith("/blog") }]}>Archive</a>
           <a href="https://dev.to/mkreder" target="_blank" rel="noreferrer">Dev.to</a>
           <a href="https://github.com/mkreder" target="_blank" rel="noreferrer">GitHub</a>
