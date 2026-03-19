@@ -16,11 +16,11 @@ El próximo Sábado nos estaremos presentando en el Festival Latinoamericano de 
 
 <strong></strong> <strong></strong> <strong></strong> <strong>Ciudad de Buenos Aires:</strong>
 
-<a href="https://fedoraproject.org/wiki/User:Villadalmine" target="_blank">Rino</a>, <a href="https://fedoraproject.org/wiki/User:Alvesadrian" target="_blank">Adrian</a> y <a href="http://es.mkreder.com/about/" target="_blank">yo</a> estaremos instalando Fedora a todas aquellas personas que traigan sus computadoras a la Facultad de Ciencias Económicas de la UBA (Av. Córdoba 2122) y además daremos 2 charlas:
-<ul>
-	<li>Virtualización en Fedora (11 Hs, Auditorio C)</li>
-	<li>Fedora 16 y la Comunidad Fedora (17 Hs, Auditoria A)</li>
-</ul>
+<a href="https://fedoraproject.org/wiki/User:Villadalmine" target="_blank">Rino</a>, <a href="https://fedoraproject.org/wiki/User:Alvesadrian" target="_blank">Adrian</a> y yo estaremos instalando Fedora a todas aquellas personas que traigan sus computadoras a la Facultad de Ciencias Económicas de la UBA (Av. Córdoba 2122) y además daremos 2 charlas:
+
+	Virtualización en Fedora (11 Hs, Auditorio C)
+	Fedora 16 y la Comunidad Fedora (17 Hs, Auditoria A)
+
 <strong>Luján:</strong> <strong></strong>
 
 <a href="https://fedoraproject.org/wiki/User:Jltodea" target="_blank">Jose</a> estará instalando Fedora y  también dando  la charla "Fedora 16 y la Comunidad Fedora" a las 17 hs. en las aulas 403/404 de la Universidad de Luján. <strong></strong>

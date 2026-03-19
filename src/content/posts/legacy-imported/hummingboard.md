@@ -10,7 +10,6 @@ tags:
   - tech
 legacySourceUrl: https://mkreder.com/2014/08/14/hummingboard/
 ---
-<!--:en-->
 
 Last month I was gratefully surprised by an email from Germany. Someone&nbsp; had seen my blog (yay!) and was interested in sending me a <a href="http://www.solid-run.com/products/cubox-i-mini-computer/">Cubox-i</a> or a <a href="http://www.solid-run.com/products/hummingboard/">HummingBoard</a> for free (double yay!).
 
@@ -26,9 +25,12 @@ Fedora has supported the architecture of the HummingBoard (armhfp), for several 
 
 These are some of the pics I took of the HummingBoard:
 
-[gallery ids="1333,1334,1335"]
+![HummingBoard](/images/legacy/galleries/hummingboard/20140811_133229.jpg)
 
-<!--:--><!--:es-->
+![HummingBoard](/images/legacy/galleries/hummingboard/20140811_133326.jpg)
+
+![HummingBoard](/images/legacy/galleries/hummingboard/20140811_151913.jpg)
+
 
 El mes pasado fui gratamente sorprendido por un correo electrónico desde Alemania, donde me comentaban que habían visto mi blog y que estaban interesados en mandarme un dispositivo <a href="http://www.solid-run.com/products/cubox-i-mini-computer/">Cubox-i</a> o <a href="http://www.solid-run.com/products/hummingboard/">HummingBoard</a> gratis.
 
@@ -44,6 +46,9 @@ Fedora ya soporta desde hace varias versiones la arquitectura de la HummingBoard
 
 Les dejo algunas imágenes de la HummingBoard:
 
-[gallery ids="1333,1334,1335"]
+![HummingBoard](/images/legacy/galleries/hummingboard/20140811_133229.jpg)
 
-<!--:-->
+![HummingBoard](/images/legacy/galleries/hummingboard/20140811_133326.jpg)
+
+![HummingBoard](/images/legacy/galleries/hummingboard/20140811_151913.jpg)
+

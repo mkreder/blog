@@ -15,7 +15,7 @@ If you want to make a backup of your database or just want to create a dump to m
 
 1. Connect to your running application trough SSH. To do that you need to click this link on OpenShift and run the displayed command.
 
-<a href="http://mkreder.com/wp-content/uploads/2016/05/Screen-Shot-2016-05-16-at-11.56.00-AM.png"><img class="alignnone size-medium wp-image-958" src="http://mkreder.com/wp-content/uploads/2016/05/Screen-Shot-2016-05-16-at-11.56.00-AM-300x134.png" alt="Screen Shot 2016-05-16 at 11.56.00 AM" width="300" height="134" /></a>
+![OpenShift SSH connection](/images/legacy/wp/Screen-Shot-2016-05-16-at-11.56.00-AM.png)
 
 2. Create the dump using this command:
 

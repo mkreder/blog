@@ -10,7 +10,7 @@ tags:
   - tech
 legacySourceUrl: https://mkreder.com/2011/06/19/fiuu-gracias-resize2fs-por-ser-bueno/
 ---
-<!--:en-->Yesterday while shrinking a filesystem my computer got stock due a hardware failure:
+Yesterday while shrinking a filesystem my computer got stock due a hardware failure:
 
 <code>
 [root@mirror /]# resize2fs -p /dev/mapper/vg_mirror-LogVol03 410G
@@ -24,7 +24,7 @@ Booted from a DVD in the rescue environment, mounted the filesystem and everythi
 
 <strong>Spanish</strong>
 
-<!--:--><!--:es-->Ayer mientras achicaba un filesystem mi computadora se freezo por un problema de hardware:
+Ayer mientras achicaba un filesystem mi computadora se freezo por un problema de hardware:
 
 <code>
 [root@mirror /]# resize2fs -p /dev/mapper/vg_mirror-LogVol03 410G
@@ -34,4 +34,4 @@ Begin pass 2 (max = 15391251)
 Relocating blocks XXXXXXXXXXXXXXXXXXXXXX------------------
 </code>
 
-Bootie desde un DVD, en modo rescate, monte el filesystem y todo estaba bien. El tamaño del filesystem todavía era el original. Realice un e2fsck y después probé de nuevo con el resize2fs. Aparentemente la parte de "Relocating blocks" no hace ningún daño si se interrumpe :D<!--:-->
+Bootie desde un DVD, en modo rescate, monte el filesystem y todo estaba bien. El tamaño del filesystem todavía era el original. Realice un e2fsck y después probé de nuevo con el resize2fs. Aparentemente la parte de "Relocating blocks" no hace ningún daño si se interrumpe :D

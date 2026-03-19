@@ -11,7 +11,7 @@ tags:
   - tech
 legacySourceUrl: https://mkreder.com/2011/06/16/solo-usuario-sud/
 ---
-<!--:en-->In order to allow a user to run a single command as root using sudo run the following as root:
+In order to allow a user to run a single command as root using sudo run the following as root:
 
 <code>echo "user ALL= NOPASSWD : /bin/file" &gt;&gt; /etc/sudoers</code>
 
@@ -21,11 +21,10 @@ If you want to do further changes to the sudoers file it's recommended to use th
 
 <strong>Español</strong>
 
-<!--:--><!--:es-->Para poder hacer esta tarea solo tenemos que ejecutar el siguiente comando como root:
+Para poder hacer esta tarea solo tenemos que ejecutar el siguiente comando como root:
 
 <code>echo "user  ALL=  NOPASSWD : /bin/file" &gt;&gt; /etc/sudoers</code>
 
 Donde user es el usuario al que le queremos dar permisos y /bin/file es la dirección o path es el archivo binario que le vamos a permitir ejecutar.
 
 Para hacer más cambios al archivo sudoers es recomendable utilizar el comando 'visudo'.
-<!--:-->

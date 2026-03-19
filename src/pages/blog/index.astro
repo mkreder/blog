@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import PostCard from "../../components/PostCard.astro";
+import { formatDate } from "../../lib/format";
 
 const posts = (await getCollection("posts"))
   .filter((entry) => !entry.data.draft)
@@ -11,25 +11,54 @@ const posts = (await getCollection("posts"))
   );
 ---
 
-<BaseLayout title="Blog | Matias Kreder">
-  <header class="page-header">
-    <p class="eyebrow">Blog</p>
-    <h1>Markdown-first publishing with room for legacy content.</h1>
-    <p>
-      New posts live in git under `src/content/posts`. Imported WordPress entries can live in
-      the same collection, and external dev.to posts stay discoverable from the homepage.
-    </p>
-  </header>
+<BaseLayout title="Archive — Matias Kreder">
+  <section class="section">
+    <div class="container">
+      <h1 class="archive-title">Archive</h1>
+      <p class="archive-desc">All posts, including legacy content imported from WordPress.</p>
 
-  <section class="grid grid-2">
-    {posts.map((post) => (
-      <PostCard
-        title={post.data.title}
-        description={post.data.description}
-        href={`/blog/${post.id}/`}
-        publishedAt={post.data.publishedAt}
-        tags={post.data.tags}
-      />
-    ))}
+      {posts.length > 0 ? (
+        <div class="post-list">
+          {posts.map((post) => (
+            <a class="post-item" href={`/blog/${post.id}/`}>
+              <div class="post-item-title">{post.data.title}</div>
+              <div class="post-item-desc">{post.data.description}</div>
+              <div class="post-item-meta">
+                <span>{formatDate(post.data.publishedAt)}</span>
+                {post.data.tags.length > 0 && (
+                  <div class="post-item-tags">
+                    {post.data.tags.slice(0, 3).map((tag) => (
+                      <span class="tag">{tag}</span>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </a>
+          ))}
+        </div>
+      ) : (
+        <p class="empty">No posts yet.</p>
+      )}
+    </div>
   </section>
 </BaseLayout>
+
+<style>
+  .archive-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.5rem;
+  }
+
+  .archive-desc {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+  }
+
+  .empty {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+  }
+</style>

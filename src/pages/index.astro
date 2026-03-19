@@ -1,9 +1,9 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import PostCard from "../components/PostCard.astro";
-import { certifications, site } from "../data/site";
+import { site } from "../data/site";
 import { getDevtoPosts } from "../lib/devto";
+import { formatDate } from "../lib/format";
 
 const posts = (await getCollection("posts"))
   .filter((entry) => !entry.data.draft)
@@ -12,123 +12,119 @@ const posts = (await getCollection("posts"))
       right.data.publishedAt.getTime() - left.data.publishedAt.getTime()
   );
 
-const featuredPosts = posts.filter((post) => post.data.featured).slice(0, 3);
-const recentPosts = posts.slice(0, 6);
-const devtoPosts = await getDevtoPosts(4);
-const featuredCertifications = certifications.filter((item) => item.featured);
+const devtoPosts = await getDevtoPosts(6);
 ---
 
-<BaseLayout title={`${site.title} | Cloud, AI, and Modernization`}>
-  <section class="hero">
-    <p class="eyebrow">Cloud · AI · Modernization</p>
-    <h1>One home for markdown posts, old WordPress writing, and new dev.to articles.</h1>
-    <p class="lede">
-      CTO, builder, and professor writing about agentic AI, AWS, platform engineering,
-      modernization, and practical software delivery. This site is git-backed, fast to
-      publish, and keeps legacy content reachable without staying on WordPress.
-    </p>
-    <div class="meta">
-      <a class="button" href="/blog">Read the blog</a>
-      <a class="button secondary" href="/about">About Matias</a>
-    </div>
-    <div class="stats">
-      <div class="card">
-        <p class="eyebrow">Experience</p>
-        <strong>20+ yrs</strong>
-        <p>Leadership and hands-on delivery across cloud, AI, software, and DevOps.</p>
-      </div>
-      <div class="card">
-        <p class="eyebrow">Current focus</p>
-        <strong>GenAI</strong>
-        <p>Bedrock, agent platforms, modernization systems, and cloud-native product design.</p>
-      </div>
-      <div class="card">
-        <p class="eyebrow">Publishing</p>
-        <strong>Git + RSS</strong>
-        <p>Write here in markdown, syndicate externally, or surface dev.to posts automatically.</p>
-      </div>
-    </div>
-  </section>
-
-  <div class="section-heading">
-    <div>
-      <p class="eyebrow">Featured</p>
-      <h2>Posts you own</h2>
-    </div>
-    <a href="/blog">See all posts</a>
-  </div>
-  <section class="grid grid-3">
-    {(featuredPosts.length > 0 ? featuredPosts : recentPosts.slice(0, 3)).map((post) => (
-      <PostCard
-        title={post.data.title}
-        description={post.data.description}
-        href={`/blog/${post.id}/`}
-        publishedAt={post.data.publishedAt}
-        tags={post.data.tags}
-      />
-    ))}
-  </section>
-
-  <div class="section-heading">
-    <div>
-      <p class="eyebrow">Syndicated</p>
-      <h2>Latest from dev.to</h2>
-    </div>
-    <a href={`https://dev.to/${site.devtoUsername}`} target="_blank" rel="noreferrer">
-      Open profile
-    </a>
-  </div>
-  <section class="grid grid-2">
-    {devtoPosts.length > 0 ? (
-      devtoPosts.map((post) => (
-        <PostCard
-          title={post.title}
-          description={post.description}
-          href={post.url}
-          publishedAt={post.publishedAt}
-          tags={post.tags}
-          source={post.source}
-        />
-      ))
-    ) : (
-      <article class="card">
-        <p class="eyebrow">Feed unavailable</p>
-        <h3>Connect a dev.to username and the latest external articles will appear here.</h3>
-        <p>
-          The fetch is already wired. Once the site can reach the feed during build, it will
-          render without any manual copying.
-        </p>
-      </article>
-    )}
-  </section>
-
-  <div class="section-heading">
-    <div>
-      <p class="eyebrow">Profile</p>
-      <h2>High-level about section</h2>
-    </div>
-    <a href="/certifications">View certifications</a>
-  </div>
-  <section class="grid grid-2">
-    <article class="panel card">
-      <p class="eyebrow">What you do</p>
-      <h3>CTO and builder for AI products, cloud platforms, and modernization programs.</h3>
-      <p>
-        Matias leads engineering organizations, still ships code, teaches at UADE, and has
-        worked across AWS, Azure, data platforms, and agentic AI systems.
+<BaseLayout title={`${site.title} — Cloud, AI & Engineering`}>
+  <!-- Hero -->
+  <section class="section">
+    <div class="container">
+      <p class="hero-greeting">Hey, I'm Matias</p>
+      <h1 class="hero-title">I write about cloud, AI,<br/>and building software<br/>that ships.</h1>
+      <p class="hero-desc">
+        CTO, AWS Community Builder, and professor based in Buenos Aires.
+        I write about agentic AI, platform engineering, and practical cloud delivery.
       </p>
-      <a class="button secondary" href="/about">Read more</a>
-    </article>
-    <article class="panel card">
-      <p class="eyebrow">Selected certifications</p>
-      <div class="grid">
-        {featuredCertifications.map((item) => (
-          <div>
-            <strong>{item.name}</strong>
-            <p>{item.issuer} · Expires {item.expires}</p>
-          </div>
-        ))}
-      </div>
-    </article>
+    </div>
   </section>
+
+  <!-- Latest from dev.to -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Latest posts</h2>
+        <a class="section-link" href={`https://dev.to/${site.devtoUsername}`} target="_blank" rel="noreferrer">
+          dev.to/{site.devtoUsername} &rarr;
+        </a>
+      </div>
+      {devtoPosts.length > 0 ? (
+        <div class="post-list">
+          {devtoPosts.map((post) => (
+            <a class="post-item" href={post.url} target="_blank" rel="noreferrer">
+              <div class="post-item-title">{post.title}</div>
+              <div class="post-item-desc">{post.description}</div>
+              <div class="post-item-meta">
+                <span class="badge">dev.to</span>
+                <span>{formatDate(post.publishedAt)}</span>
+                {post.tags.length > 0 && (
+                  <div class="post-item-tags">
+                    {post.tags.slice(0, 3).map((tag) => (
+                      <span class="tag">{tag}</span>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </a>
+          ))}
+        </div>
+      ) : (
+        <p class="empty-state">
+          dev.to feed is currently unavailable. Posts will appear here automatically at build time.
+        </p>
+      )}
+    </div>
+  </section>
+
+  <!-- Archive -->
+  {posts.length > 0 && (
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>From the archive</h2>
+          <a class="section-link" href="/blog">View all &rarr;</a>
+        </div>
+        <div class="post-list">
+          {posts.slice(0, 8).map((post) => (
+            <a class="post-item" href={`/blog/${post.id}/`}>
+              <div class="post-item-title">{post.data.title}</div>
+              <div class="post-item-desc">{post.data.description}</div>
+              <div class="post-item-meta">
+                <span>{formatDate(post.data.publishedAt)}</span>
+                {post.data.tags.length > 0 && (
+                  <div class="post-item-tags">
+                    {post.data.tags.slice(0, 3).map((tag) => (
+                      <span class="tag">{tag}</span>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
 </BaseLayout>
+
+<style>
+  .hero-greeting {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-title {
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+
+  .hero-desc {
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    max-width: 540px;
+  }
+
+  .empty-state {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    padding: 1.5rem;
+    border: 1px dashed var(--border);
+    border-radius: var(--radius);
+    text-align: center;
+  }
+</style>

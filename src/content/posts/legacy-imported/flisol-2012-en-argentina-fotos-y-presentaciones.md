@@ -10,14 +10,11 @@ tags:
   - tech
 legacySourceUrl: https://mkreder.com/2012/05/06/flisol-2012-en-argentina-fotos-y-presentaciones/
 ---
-<p><!--:en--><strong>Ciudad de Buenos Aires</strong></p>
-<p>Presentations<br /><a href="http://mkreder.com//wp-content/uploads/2012/05/f16-caba.ppt">Fedora 16 y la comunidad</a><br /><a href="http://mkreder.com//wp-content/uploads/2012/05/virt.ppt">Virtualización</a></p>
+<p><strong>Ciudad de Buenos Aires</strong></p>
+<p>Presentations<br />Fedora 16 y la comunidad *(no longer available)*<br />Virtualización *(no longer available)*</p>
 <p><strong>Luján</strong></p>
-<p>Presentations<br /><a href="http://mkreder.com//wp-content/uploads/2012/05/f16-lujan.ppt">Fedora 16 y la comunidad</a><br /><!--:--><!--:es--><strong>Ciudad de Buenos Aires</strong></p>
-<p>Presentaciones<br /><a href="http://mkreder.com//wp-content/uploads/2012/05/f16-caba.ppt">Fedora 16 y la comunidad</a><br /><a href="http://mkreder.com//wp-content/uploads/2012/05/virt.ppt">Virtualización</a></p>
+<p>Presentations<br />Fedora 16 y la comunidad *(no longer available)*<br /><strong>Ciudad de Buenos Aires</strong></p>
+<p>Presentaciones<br />Fedora 16 y la comunidad *(no longer available)*<br />Virtualización *(no longer available)*</p>
 <p><strong>Luján</strong></p>
-<p>Presentaciones<br /><a href="http://mkreder.com//wp-content/uploads/2012/05/f16-lujan.ppt">Fedora 16 y la comunidad</a><br /><!--:--></p>
+<p>Presentaciones<br />Fedora 16 y la comunidad *(no longer available)*<br /></p>
 
-<!-- wp:paragraph -->
-<p></p>
-<!-- /wp:paragraph -->

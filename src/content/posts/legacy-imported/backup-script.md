@@ -13,7 +13,7 @@ tags:
   - xdialog
 legacySourceUrl: https://mkreder.com/2011/06/18/backup-script/
 ---
-<!--:en-->I was used to have a rsync call in my crontab to perform backup from my laptop to my desktop. My idea was to backup my laptop everyday even if I wasn't at home, so before the time that the rsync ran I had to make sure that I was connected to my home network via OpenVPN and that my desktop was on.
+I was used to have a rsync call in my crontab to perform backup from my laptop to my desktop. My idea was to backup my laptop everyday even if I wasn't at home, so before the time that the rsync ran I had to make sure that I was connected to my home network via OpenVPN and that my desktop was on.
 
 If the day was calm, no problem, but when I was busy at work that meant no backup for that day.
 
@@ -149,7 +149,7 @@ Hope you can use it for something, if not, you have a good example of how to use
 
 <strong>Español</strong>
 
-<!--:--><!--:es-->Todo comenzó cuando tenia configurado un script de rsync en el cron, el cual me permitía hacer backup desde mi laptop a mi desktop. Mi idea era hacer backup diariamente, incluso aquellos dias en los que no estaba en casa. Con este propósito, antes de que mi script se ejecutase tenia que preparar el entorno, iniciar la VPN y asegurarme que mi PC de casa estuviese prendida.
+Todo comenzó cuando tenia configurado un script de rsync en el cron, el cual me permitía hacer backup desde mi laptop a mi desktop. Mi idea era hacer backup diariamente, incluso aquellos dias en los que no estaba en casa. Con este propósito, antes de que mi script se ejecutase tenia que preparar el entorno, iniciar la VPN y asegurarme que mi PC de casa estuviese prendida.
 
 Si el día estaba tranquilo, no había problema, pero si era un día complicado me quedaba sin backup.
 
@@ -297,4 +297,4 @@ Donde AA:BB:CC:DD:EE:FF es la MAC address de mi PC de escritorio.
 <strong>"No soy una persona técnica! que esta haciendo esto?" </strong>
 Básicamente, esta viendo si mi laptop esta en mi red hogareña. De no estarlo trata de establecer una conexión con mi red hogareña a través de una VPN. Una vez en la red, se fija si mi computadora esta prendida. Si no esta prendida, trata de prenderla por WOL. Cuando todo esta OK, hace un backup diferencial entre mi laptop y mi computadora de casa.
 
-Espero que puedan usar el script para algo, sino, es un buen ejemplo de como usar Xdialog, expect y otras cosillas...<!--:-->
+Espero que puedan usar el script para algo, sino, es un buen ejemplo de como usar Xdialog, expect y otras cosillas...

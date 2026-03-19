@@ -14,7 +14,7 @@ tags:
   - tech
 legacySourceUrl: https://mkreder.com/2011/06/01/solucion-mic-roto-en-acer-1410/
 ---
-<!--:en-->Thanks to Mathieu Bouffard, he helped me to to workaround the issue with my mic in Acer Aspire One 1410.
+Thanks to Mathieu Bouffard, he helped me to to workaround the issue with my mic in Acer Aspire One 1410.
 
 <strong>Issue:</strong>
 
@@ -91,7 +91,7 @@ A patch was submitted to the alsa devel team to fix this problem at ALSA level.
 
 <strong>Español</strong>
 
-<!--:--><!--:es-->Gracias a Mathieu Bouffard, él me ayudo a a configurar mi micrófono en mi Acer Aspire One 1410.
+Gracias a Mathieu Bouffard, él me ayudo a a configurar mi micrófono en mi Acer Aspire One 1410.
 
 <strong>Problema:</strong>
 
@@ -164,4 +164,4 @@ Ejecutamos nuestro script:
 <code>chmod +x ~/pulsejack
 ~/pulsejack</code>
 
-Un patch fue enviado al team de ALSA para solucionar este problema desde el driver.<!--:-->
+Un patch fue enviado al team de ALSA para solucionar este problema desde el driver.

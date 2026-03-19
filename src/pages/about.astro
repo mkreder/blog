@@ -1,67 +1,170 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-
-const highlights = [
-  "20+ years across infrastructure, software engineering, architecture, DevOps, and AI product delivery.",
-  "CTO roles at MechanizedAI, Selehann, and now fractional CTO work at Aivilo.",
-  "Hands-on with Python, React, FastAPI, cloud-native AWS systems, and agentic AI workflows.",
-  "Professor at UADE teaching application integration and artificial intelligence."
-];
+import { certifications, site } from "../data/site";
 ---
 
-<BaseLayout title="About | Matias Kreder">
-  <header class="page-header">
-    <p class="eyebrow">About</p>
-    <h1>Technical leadership without losing the builder mindset.</h1>
-    <p>
-      Matias Kreder is a CTO and engineering leader based in Buenos Aires. He works at the
-      intersection of AI products, cloud-native architecture, modernization programs, and
-      practical delivery systems that teams can actually operate.
-    </p>
-  </header>
+<BaseLayout title="About — Matias Kreder">
+  <section class="section">
+    <div class="container">
+      <p class="about-label">About</p>
+      <h1 class="about-title">Matias Kreder</h1>
+      <div class="about-body">
+        <p>
+          CTO and engineering leader based in Buenos Aires. I work at the intersection of
+          AI products, cloud-native architecture, and practical delivery systems that teams
+          can actually operate.
+        </p>
+        <p>
+          Over 20 years across infrastructure, software engineering, architecture, DevOps,
+          and AI product delivery. CTO roles at MechanizedAI and Selehann. Led a successful
+          exit from ATADATA to Deloitte as Engineering Manager of a cloud migration product
+          I helped create. Hands-on with Python, React, cloud-native AWS systems,
+          and agentic AI workflows.
+        </p>
+        <p>
+          I teach application integration and artificial intelligence at UADE. I'm an AWS
+          Community Builder, multiple AWS DeepRacer League finalist, and a regular speaker
+          on AI engineering and cloud delivery.
+        </p>
+      </div>
 
-  <section class="grid grid-2">
-    <article class="card">
-      <p class="eyebrow">Current scope</p>
-      <p>
-        Current work spans GenAI platforms, cloud cost and observability systems, data and AI
-        control planes, modernization accelerators, and product strategy for teams shipping on
-        AWS and Azure.
-      </p>
-      <p>
-        He has built and led distributed teams covering backend, frontend, data, DevOps, and
-        AI engineering, while continuing to contribute directly to architecture and code when
-        it helps unblock delivery.
-      </p>
-    </article>
-    <article class="card">
-      <p class="eyebrow">Employment snapshot</p>
-      <div class="grid">
-        {highlights.map((item) => (
-          <p>{item}</p>
+      <div class="links-row">
+        {site.links.map((link) => (
+          <a class="link-chip" href={link.href} target="_blank" rel="noreferrer">
+            {link.label} &nearr;
+          </a>
         ))}
       </div>
-    </article>
-  </section>
-
-  <section class="section-heading">
-    <div>
-      <p class="eyebrow">Community</p>
-      <h2>Signals beyond the resume</h2>
     </div>
   </section>
-  <section class="grid grid-3">
-    <article class="card">
-      <h3>AWS Community Builder</h3>
-      <p>Contributor and speaker around AI engineering, AWS services, and practical cloud delivery.</p>
-    </article>
-    <article class="card">
-      <h3>DeepRacer finalist</h3>
-      <p>Multiple AWS DeepRacer League finals appearances between 2022 and 2025.</p>
-    </article>
-    <article class="card">
-      <h3>Educator</h3>
-      <p>University teaching focused on integration, AI, and hands-on engineering practice.</p>
-    </article>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="certs-title">Certifications</h2>
+      <div class="cert-list">
+        {certifications.map((cert) => (
+          cert.credlyUrl ? (
+            <a class="cert-item cert-link" href={cert.credlyUrl} target="_blank" rel="noreferrer">
+              <div class="cert-name">{cert.name} <span class="cert-arrow">&nearr;</span></div>
+              <div class="cert-meta">Expires {cert.expires}</div>
+            </a>
+          ) : (
+            <div class="cert-item">
+              <div class="cert-name">{cert.name}</div>
+              <div class="cert-meta">Expires {cert.expires}</div>
+            </div>
+          )
+        ))}
+      </div>
+    </div>
   </section>
 </BaseLayout>
+
+<style>
+  .about-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .about-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+  }
+
+  .about-body p {
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    color: var(--text-secondary);
+  }
+
+  .about-body p + p {
+    margin-top: 1rem;
+  }
+
+  .links-row {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+  }
+
+  .link-chip {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    padding: 0.375rem 0.875rem;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    transition: all 0.15s;
+  }
+
+  .link-chip:hover {
+    border-color: var(--text);
+    color: var(--text);
+  }
+
+  .certs-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+  }
+
+  .cert-list {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .cert-item {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding: 0.75rem 1.25rem;
+    gap: 1rem;
+  }
+
+  .cert-item + .cert-item {
+    border-top: 1px solid var(--border);
+  }
+
+  .cert-link {
+    text-decoration: none;
+    transition: background 0.15s;
+  }
+
+  .cert-link:hover {
+    background: var(--surface-hover);
+  }
+
+  .cert-arrow {
+    color: var(--text-muted);
+    font-size: 0.75rem;
+  }
+
+  .cert-name {
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  .cert-meta {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
+
+  @media (max-width: 640px) {
+    .cert-item {
+      flex-direction: column;
+      gap: 0.125rem;
+    }
+  }
+</style>

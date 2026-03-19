@@ -10,8 +10,5 @@ tags:
   - video
 legacySourceUrl: https://mkreder.com/2011/11/08/fedora16-vide/
 ---
-<p><!--:en-->http://www.youtube.com/watch?v=c-k8JEHKVAQ<br /><!--:--></p>
 
-<!-- wp:paragraph -->
-<p></p>
-<!-- /wp:paragraph -->
+http://www.youtube.com/watch?v=c-k8JEHKVAQ

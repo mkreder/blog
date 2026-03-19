@@ -9,7 +9,7 @@ tags:
   - tech
 legacySourceUrl: https://mkreder.com/2013/10/27/error-openstack-nova-credentials/
 ---
-<!--:es-->Encontré un problema tratando de instalar OpenStack en Fedora 19 <a href="http://fedoraproject.org/wiki/Getting_started_with_OpenStack_on_Fedora_18">con esta guía</a>
+Encontré un problema tratando de instalar OpenStack en Fedora 19 <a href="http://fedoraproject.org/wiki/Getting_started_with_OpenStack_on_Fedora_18">con esta guía</a>
 
 <code># nova --debug flavor-list
 REQ: curl -i http://127.0.0.1:5000/v2.0/tokens -X POST -H "Content-Type: application/json" -H "Accept: application/json" -H "User-Agent: python-novaclient" -d '{"auth": {"tenantName": "admin", "passwordCredentials": {"username": "admin", "password": "verybadpass"}}}'</code>
@@ -112,7 +112,7 @@ Finalmente instale OpenStack utilizando <a href="http://openstack.redhat.com/Qui
 
 <strong>English</strong>
 
-<!--:--><!--:en-->I faced a problem while trying to configure OpenStack on Fedora 19 following <a href="http://fedoraproject.org/wiki/Getting_started_with_OpenStack_on_Fedora_18">this guide</a>
+I faced a problem while trying to configure OpenStack on Fedora 19 following <a href="http://fedoraproject.org/wiki/Getting_started_with_OpenStack_on_Fedora_18">this guide</a>
 
 <code># nova --debug flavor-list
 REQ: curl -i http://127.0.0.1:5000/v2.0/tokens -X POST -H "Content-Type: application/json" -H "Accept: application/json" -H "User-Agent: python-novaclient" -d '{"auth": {"tenantName": "admin", "passwordCredentials": {"username": "admin", "password": "verybadpass"}}}'</code>
@@ -210,4 +210,4 @@ Associate them all together.
 
 After this, the credentials error disappeared. However, I faced a new error message saying that Nova wasn't able to sign the token.
 
-I've finally installed OpenStack trough <a href="http://openstack.redhat.com/Quickstart">RDO</a>. This method is simpler. <!--:-->
+I've finally installed OpenStack trough <a href="http://openstack.redhat.com/Quickstart">RDO</a>. This method is simpler. 

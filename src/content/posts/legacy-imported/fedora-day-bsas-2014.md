@@ -10,13 +10,13 @@ tags:
   - tech
 legacySourceUrl: https://mkreder.com/2014/12/15/fedora-day-bsas-2014/
 ---
-<!--:en-->A month ago (or so) we decided to start organizing an event focused on Fedora here in Buenos Aires. The objectives for the event were:
-<ul>
- 	<li>Get new contributors for the local Fedora community</li>
- 	<li>Grow the interest and show more presence of Fedora on the local community</li>
- 	<li>Bring all the ambassadors from Argentina together to talk about FUDCon 2015</li>
- 	<li>Fedora 21 Release Party</li>
-</ul>
+A month ago (or so) we decided to start organizing an event focused on Fedora here in Buenos Aires. The objectives for the event were:
+
+ 	Get new contributors for the local Fedora community
+ 	Grow the interest and show more presence of Fedora on the local community
+ 	Bring all the ambassadors from Argentina together to talk about FUDCon 2015
+ 	Fedora 21 Release Party
+
 The organization was good, we thought of all the required tasks and we assigned owners for each one. Eduardo Echeverria (<a href="http://fedoraproject.org/wiki/User:Echevemaster">echevemaster</a>) helped a lot by setting up the event's <a href="http://fedoraday.com">website</a>.  <a href="https://fedoraproject.org/wiki/User:Lvaz">Leo</a>, <a href="https://fedoraproject.org/wiki/User:Villadalmine">Rino</a>, <a href="https://fedoraproject.org/wiki/User:Marie">Mariela</a> (our new ambassador) and <a href="https://fedoraproject.org/wiki/User:Delete">myself</a> divided the remaining tasks.
 
 We met <a href="https://fedoraproject.org/wiki/User:Lvaz">Leo</a> and <a href="http://fedoraproject.org/wiki/User:Fleite">Fabio</a> who came from Brasil on Wednesday night for an organizational dinner. We had a great time at "La Casa Del Queso", talking and sharing ideas about the Fedora Day and the bid we are going to present for FUDCon 2015.
@@ -34,24 +34,137 @@ At the end of the day we picked  up a winner of a blue Fedora that I brought. 
 At night we went to o a local pub to celebrate the success of the day.
 
 Some facts about this event:
-<ul>
- 	<li><a href="https://fedoraproject.org/wiki/User:Woody">Jonatan Madera</a> and <a href="https://fedoraproject.org/wiki/User:Igeek88">Ivan Weinberg</a> were named ambassadors since they helped a lot with the activities on the day and organization previous to the event.</li>
- 	<li>We got 3 new candidates to join the ambassadors team that will be mentored by me and 2 new candidates to join the packaging team.</li>
-</ul>
+
+ 	<a href="https://fedoraproject.org/wiki/User:Woody">Jonatan Madera</a> and <a href="https://fedoraproject.org/wiki/User:Igeek88">Ivan Weinberg</a> were named ambassadors since they helped a lot with the activities on the day and organization previous to the event.
+ 	We got 3 new candidates to join the ambassadors team that will be mentored by me and 2 new candidates to join the packaging team.
+
 I also want to thank Fabio and Leo who came from Brasil and all the guys who came from all different Argentinian provinces.
 
 Some pictures
 
 Organizational dinner
 
-[gallery ids="1208,1209,1204"]
+![Fedora Day](/images/legacy/galleries/fedora-day-bsas-2014/img_20141213_132135658.jpg)
+
+
+![Fedora Day](/images/legacy/galleries/fedora-day-bsas-2014/img_20141213_132133528.jpg)
 
 Fedora Day
 
-[gallery ids="1306,1302,1298,1294,1290,1286,1282,1278,1274,1271,1266,1262,1258,1254,1250,1238,1230,1223,1231,1226,1215,1197,1195,1192,1188,1183,1180,1175,1172,1168,1163,1159,1155,1152,1145,1148,1142,1133,1124,1121,1116,1112,1105,1101,1097,1090,1060,1041,1034,1022,1018,1010"]
+![Fedora Day](/images/legacy/galleries/fedora-day-bsas-2014/img-20141213-wa0043-1024x575-1.jpg)
+
+![Fedora Day](/images/legacy/galleries/fedora-day-bsas-2014/img-20141213-wa0041-1024x575-1.jpeg)
+
+![Fedora Day](/images/legacy/galleries/fedora-day-bsas-2014/img-20141213-wa0040-1024x576-1.jpg)
+
+![Fedora Day](/images/legacy/galleries/fedora-day-bsas-2014/img-20141213-wa0036-1024x575-1.jpg)
+
+![Fedora Day](/images/legacy/galleries/fedora-day-bsas-2014/img-20141213-wa0031-1024x575-1.jpeg)
+
+![Fedora Day](/images/legacy/galleries/fedora-day-bsas-2014/img-20141213-wa0029-1024x575-1.jpeg)
+
+![Fedora Day](/images/legacy/galleries/fedora-day-bsas-2014/img-20141213-wa0027-1024x576-1.jpg)
+
+![Fedora Day](/images/legacy/galleries/fedora-day-bsas-2014/img-20141213-wa0026-1024x576-1.jpg)
+
+![Fedora Day](/images/legacy/galleries/fedora-day-bsas-2014/img-20141213-wa0024-1024x576-1.jpg)
+
+![Fedora Day](/images/legacy/galleries/fedora-day-bsas-2014/img-20141213-wa0023.jpg)
+
+![Fedora Day](/images/legacy/galleries/fedora-day-bsas-2014/img-20141213-wa0022-576x1024-1.jpg)
+
+![Fedora Day](/images/legacy/galleries/fedora-day-bsas-2014/img-20141213-wa0015-1024x575-1.jpeg)
+
+![Fedora Day](/images/legacy/galleries/fedora-day-bsas-2014/img-20141213-wa0010-1024x575-1.jpeg)
+
+![Fedora Day](/images/legacy/galleries/fedora-day-bsas-2014/img-20141213-wa0006-1024x575-1.jpeg)
+
+![Fedora Day](/images/legacy/galleries/fedora-day-bsas-2014/img-20141213-wa0002-1024x575-1.jpeg)
+
+![Fedora Day](/images/legacy/galleries/fedora-day-bsas-2014/img_20141213_155140456-1024x575-1.jpg)
+
+![Fedora Day](/images/legacy/galleries/fedora-day-bsas-2014/img_20141213_154515082-1024x575-1.jpg)
+
+![Fedora Day](/images/legacy/galleries/fedora-day-bsas-2014/img_20141213_143900467.jpg)
+
+![Fedora Day](/images/legacy/galleries/fedora-day-bsas-2014/img_20141213_154515082.jpg)
+
+![Fedora Day](/images/legacy/galleries/fedora-day-bsas-2014/img_20141213_152638491-1024x575-1.jpg)
+
+![Fedora Day](/images/legacy/galleries/fedora-day-bsas-2014/img_20141213_143502094.jpg)
+
+
+![Fedora Day](/images/legacy/galleries/fedora-day-bsas-2014/img_20141213_115137685-1024x575-1.jpg)
+
+![Fedora Day](/images/legacy/galleries/fedora-day-bsas-2014/img_20141213_111725881.jpg)
+
+![Fedora Day](/images/legacy/galleries/fedora-day-bsas-2014/img_20141213_111250356.jpg)
+
+![Fedora Day](/images/legacy/galleries/fedora-day-bsas-2014/img_20141213_105537791-1024x575-1.jpg)
+
+![Fedora Day](/images/legacy/galleries/fedora-day-bsas-2014/img_20141213_105527662.jpg)
+
+![Fedora Day](/images/legacy/galleries/fedora-day-bsas-2014/img_20141213_104740326-575x1024-1.jpg)
+
+![Fedora Day](/images/legacy/galleries/fedora-day-bsas-2014/img_20141213_104644612.jpg)
+
+![Fedora Day](/images/legacy/galleries/fedora-day-bsas-2014/img_20141213_102227480.jpg)
+
+![Fedora Day](/images/legacy/galleries/fedora-day-bsas-2014/img_20141213_101501891-1024x575-1.jpg)
+
+![Fedora Day](/images/legacy/galleries/fedora-day-bsas-2014/img_20141213_092244405-575x1024-1.jpg)
+
+![Fedora Day](/images/legacy/galleries/fedora-day-bsas-2014/img_20141213_173604-1024x576-1.jpg)
+
+![Fedora Day](/images/legacy/galleries/fedora-day-bsas-2014/img_20141213_165501.jpg)
+
+![Fedora Day](/images/legacy/galleries/fedora-day-bsas-2014/img_20141213_153130.jpg)
+
+![Fedora Day](/images/legacy/galleries/fedora-day-bsas-2014/img_20141213_162700-1024x689-1.jpg)
+
+
+![Fedora Day](/images/legacy/galleries/fedora-day-bsas-2014/img_20141213_143824.jpg)
+
+![Fedora Day](/images/legacy/galleries/fedora-day-bsas-2014/img_20141213_143604-1024x576-1.jpg)
+
+![Fedora Day](/images/legacy/galleries/fedora-day-bsas-2014/img_20141213_140334.jpg)
+
+![Fedora Day](/images/legacy/galleries/fedora-day-bsas-2014/img_20141213_135839-1024x576-1.jpg)
+
+![Fedora Day](/images/legacy/galleries/fedora-day-bsas-2014/img_20141213_135659-1024x576-1.jpg)
+
+![Fedora Day](/images/legacy/galleries/fedora-day-bsas-2014/img_20141212_180223.jpg)
+
+![Fedora Day](/images/legacy/galleries/fedora-day-bsas-2014/img_20141212_175742.jpg)
+
+![Fedora Day](/images/legacy/galleries/fedora-day-bsas-2014/img_20141212_173017.jpg)
+
+
+
+![Fedora Day](/images/legacy/galleries/fedora-day-bsas-2014/20141213_165447-1024x576-1.jpg)
+
+![Fedora Day](/images/legacy/galleries/fedora-day-bsas-2014/20141213_111237.jpg)
+
+![Fedora Day](/images/legacy/galleries/fedora-day-bsas-2014/20141213_111224.jpg)
+
+![Fedora Day](/images/legacy/galleries/fedora-day-bsas-2014/20141213_101131.jpg)
+
+![Fedora Day](/images/legacy/galleries/fedora-day-bsas-2014/20141213_101118.jpg)
 
 Release Party on the pub
 
-[gallery ids="1311,1247,1240,1084,1077,1072,1053,1047,1043"]
+![Fedora Day](/images/legacy/galleries/fedora-day-bsas-2014/img-20141213-wa0046.jpg)
 
-<!--:-->
+![Fedora Day](/images/legacy/galleries/fedora-day-bsas-2014/img_20141213_204435305.jpg)
+
+
+![Fedora Day](/images/legacy/galleries/fedora-day-bsas-2014/img_20141210_224526774-1024x575-1.jpg)
+
+![Fedora Day](/images/legacy/galleries/fedora-day-bsas-2014/img_20141210_224514669-1024x575-1.jpg)
+
+![Fedora Day](/images/legacy/galleries/fedora-day-bsas-2014/img_20141210_224449913.jpg)
+
+![Fedora Day](/images/legacy/galleries/fedora-day-bsas-2014/20141213_192048-1024x576-1.jpg)
+
+
+

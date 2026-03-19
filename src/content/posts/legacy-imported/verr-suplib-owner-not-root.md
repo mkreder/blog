@@ -12,7 +12,7 @@ tags:
   - virtualbox
 legacySourceUrl: https://mkreder.com/2012/08/20/verr_suplib_owner_not_root/
 ---
-<!--:en-->A couple of days ago I had a problem with VirtualBox, I couldn't start one of my VMs because it was displaying an error message saying: "VERR_SUPLIB_OWNER_NOT_ROOT"
+A couple of days ago I had a problem with VirtualBox, I couldn't start one of my VMs because it was displaying an error message saying: "VERR_SUPLIB_OWNER_NOT_ROOT"
 Searching on the internet I found this <a title="bug" href="https://www.virtualbox.org/ticket/7889">bug</a>. and they suggested to run:
 
 <code>chown -R root:root /usr/lib/virtualbox
@@ -31,7 +31,7 @@ drwxrwxr-x. 13 500 500 4096 Aug  3  2006 /usr</code>
 
 <strong>Español</strong>
 
-<!--:--><!--:es-->Hace unos días me tope con un problema, VirtualBox no podía arrancar mi maquina virtual dando el error "VERR_SUPLIB_OWNER_NOT_ROOT"
+Hace unos días me tope con un problema, VirtualBox no podía arrancar mi maquina virtual dando el error "VERR_SUPLIB_OWNER_NOT_ROOT"
 Buscando en internet encontré este <a title="bug" href="https://www.virtualbox.org/ticket/7889">bug</a>. en donde sugerían hacer:
 
 <code>chown -R root:root /usr/lib/virtualbox
@@ -46,4 +46,4 @@ Chequeando los permisos de /usr vi que por alguna extraña razón el dueño era 
 drwxrwxr-x. 13 500 500 4096 Aug  3  2006 /usr</code>
 
 <strong>Solución:</strong>
-<code>chown root:root /usr</code><!--:-->
+<code>chown root:root /usr</code>

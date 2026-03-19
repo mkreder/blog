@@ -8,6 +8,7 @@ tags:
   - on-the-web
   - xterm
   - xtermcomar
+draft: true
 legacySourceUrl: https://mkreder.com/2008/11/13/test/
 ---
 Sin ir mas lejos, ellinux.com.ar es parte de una red de IRCs, que tiene una larga trayectoria en el underground.

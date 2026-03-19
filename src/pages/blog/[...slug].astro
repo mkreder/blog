@@ -16,26 +16,24 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 ---
 
-<BaseLayout title={`${post.data.title} | Matias Kreder`} description={post.data.description}>
-  <article class="article hero">
-    <p class="eyebrow">Blog post</p>
-    <h1>{post.data.title}</h1>
-    <div class="meta">
-      <span>{formatDate(post.data.publishedAt)}</span>
-      {post.data.updatedAt && <span>Updated {formatDate(post.data.updatedAt)}</span>}
-      {post.data.legacySourceUrl && (
-        <a href={post.data.legacySourceUrl} target="_blank" rel="noreferrer">Legacy source</a>
-      )}
-    </div>
-    {post.data.tags.length > 0 && (
-      <div class="tag-row">
-        {post.data.tags.map((tag: string) => (
-          <span class="tag">{tag}</span>
-        ))}
+<BaseLayout title={`${post.data.title} — Matias Kreder`} description={post.data.description}>
+  <div class="container">
+    <header class="article-header">
+      <h1>{post.data.title}</h1>
+      <div class="article-meta">
+        <span>{formatDate(post.data.publishedAt)}</span>
+        {post.data.updatedAt && <span>· Updated {formatDate(post.data.updatedAt)}</span>}
       </div>
-    )}
+      {post.data.tags.length > 0 && (
+        <div class="article-tags">
+          {post.data.tags.map((tag: string) => (
+            <span class="tag">{tag}</span>
+          ))}
+        </div>
+      )}
+    </header>
     <div class="article-content">
       <Content />
     </div>
-  </article>
+  </div>
 </BaseLayout>

@@ -12,31 +12,18 @@ tags:
   - tech
 legacySourceUrl: https://mkreder.com/2020/05/01/cross-account-iam-role-for-ecs-deployments/
 ---
-<!-- wp:paragraph -->
 <p>In my setup I have 2 accounts:</p>
-<!-- /wp:paragraph -->
 
-<!-- wp:paragraph -->
 <p>Account A runs CodeCommit + CodePipeline</p>
-<!-- /wp:paragraph -->
 
-<!-- wp:paragraph -->
 <p>Account B has an ECS cluster</p>
-<!-- /wp:paragraph -->
 
-<!-- wp:paragraph -->
 <p>Most of the steps I did are described in the <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-create-cross-account.html">Create a Pipeline in CodePipeline That Uses Resources guide from AWS.</a></p>
-<!-- /wp:paragraph -->
 
-<!-- wp:paragraph -->
 <p>However, my setup is to deploy to ECS using CodePipeline without using CodeDeploy. So I had to create a CrossAccount role with the following policies.</p>
-<!-- /wp:paragraph -->
 
-<!-- wp:paragraph -->
 <p>Policy to access KMS key in account A</p>
-<!-- /wp:paragraph -->
 
-<!-- wp:code -->
 <pre class="wp-block-code"><code>{
      "Version": "2012-10-17",
      "Statement": [
@@ -54,13 +41,9 @@ legacySourceUrl: https://mkreder.com/2020/05/01/cross-account-iam-role-for-ecs-d
          }
      ]
  } </code></pre>
-<!-- /wp:code -->
 
-<!-- wp:paragraph -->
 <p>Policy to allow access to S3 bucket in account A:</p>
-<!-- /wp:paragraph -->
 
-<!-- wp:code -->
 <pre class="wp-block-code"><code>{
     "Version": "2012-10-17",
     "Statement": [
@@ -75,13 +58,9 @@ legacySourceUrl: https://mkreder.com/2020/05/01/cross-account-iam-role-for-ecs-d
         }
     ]
 }</code></pre>
-<!-- /wp:code -->
 
-<!-- wp:paragraph -->
 <p>Policy to allow access to ECS in account B</p>
-<!-- /wp:paragraph -->
 
-<!-- wp:code -->
 <pre class="wp-block-code"><code>{
     "Version": "2012-10-17",
     "Statement": [
@@ -95,13 +74,9 @@ legacySourceUrl: https://mkreder.com/2020/05/01/cross-account-iam-role-for-ecs-d
         }
     ]
 }</code></pre>
-<!-- /wp:code -->
 
-<!-- wp:paragraph -->
 <p>Policy to pass the role to ECS:</p>
-<!-- /wp:paragraph -->
 
-<!-- wp:code -->
 <pre class="wp-block-code"><code>{
     "Version": "2012-10-17",
     "Statement": [
@@ -121,12 +96,7 @@ legacySourceUrl: https://mkreder.com/2020/05/01/cross-account-iam-role-for-ecs-d
         }
     ]
 }</code></pre>
-<!-- /wp:code -->
 
-<!-- wp:paragraph -->
 <p>Without these policies I was getting a lot of different errors in CodePipeline like "The provided role does not have sufficient permissions to access ECS" or "The provided role does not have sufficient permissions (to access certain bucket)..</p>
-<!-- /wp:paragraph -->
 
-<!-- wp:paragraph -->
 <p><br></p>
-<!-- /wp:paragraph -->

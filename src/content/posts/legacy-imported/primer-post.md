@@ -7,6 +7,7 @@ tags:
   - post
   - primer
   - welcome
+draft: true
 legacySourceUrl: https://mkreder.com/2008/02/26/primer-post/
 ---
 Bueno, mi nombre es Matias Kreder, un fanatico del mundo GNU, en este blog voy a ir comentando las novedades de este universo y algunos proyectitos libres que voy a ir haciendo.

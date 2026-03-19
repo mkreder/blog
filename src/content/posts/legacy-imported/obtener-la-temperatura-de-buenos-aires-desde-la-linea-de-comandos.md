@@ -23,8 +23,5 @@ legacySourceUrl: https://mkreder.com/2010/02/14/obtener-la-temperatura-de-buenos
 <p><code>&lt;temp_c data="31"/&gt;</code></p>
 <p><code>$ curl -s "http://www.google.com/ig/api?weather=Buenos%20Aires" | sed 's|.*&lt;temp_c data="([^"]*)"/&gt;.*|1|'<br />31</code></p>
 <p>el sed nos sirve para limpiar de ahi solamente el 31, y finalmente el echo arma la frase mas linda.</p>
-<p> </p>
 <p><code>$ echo "Temperatura $(curl -s "http://www.google.com/ig/api?weather=Buenos%20Aires" | sed 's|.*&lt;temp_c data="([^"]*)"/&gt;.*|1|') grados en Buenos Aires"<br />Temperatura 31 grados en Buenos Aires</code></p>
-<p> </p>
-<p> </p>
 <p><code> </code></p>

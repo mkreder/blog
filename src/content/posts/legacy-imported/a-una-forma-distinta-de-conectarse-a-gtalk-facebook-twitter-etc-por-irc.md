@@ -11,7 +11,7 @@ tags:
   - tech
 legacySourceUrl: https://mkreder.com/2011/02/01/a-una-forma-distinta-de-conectarse-a-gtalk-facebook-twitter-etc-por-irc/
 ---
-<p><!--:en-->Imagine that you are back in the past when the internet was just text and the only way to communicate with other people was IRC.</p>
+<p>Imagine that you are back in the past when the internet was just text and the only way to communicate with other people was IRC.</p>
 <p>Well, it's possible to connect to almost everything with bitlbee. I'm sure most of you already know probably about this, but I didn't know until yesterday and that's why I'm blogging about it.</p>
 <p><strong>Installation</strong></p>
 <p>As simple as:</p>
@@ -23,7 +23,6 @@ legacySourceUrl: https://mkreder.com/2011/02/01/a-una-forma-distinta-de-conectar
 <p><code>service xinetd start; chkconfig xinetd on<br />
 </code></p>
 <p><strong>First steps<br /></strong><br />Set up your favorite IRC client to connect to localhost:6667 , as bitlbee works a local IRC server in your computer,  you could easily try to connect to it with /server localhost, the persistent configuration to autoconnect will depend in your IRC client, I use a client-based old client, irssi. Once connected it will join you to a channel called &amp;bitlbee</p>
-<p> </p>
 <p>Once on that channel you will have to start setuping your IM accounts, but first you may need to register to bitlbee as it  will store your credentials (I'm sorry, is the only way it works, but no worries it remains somewhere in your pc).</p>
 <p>To register say in the &amp;bitlbee channel:</p>
 <p><code>register PASSWORD<br />
@@ -48,7 +47,7 @@ account set facebook/nick_source full_name (Older versions)</code></p>
 <p><code>account on</code></p>
 <p>Have fun!</p>
 <p><strong>Español</strong></p>
-<p><!--:--><!--:es-->Imagínense que estan en el pasado, cuando Internet era solo texto y la unica forma de comunicarse con el mundo era IRC</p>
+<p>Imagínense que estan en el pasado, cuando Internet era solo texto y la unica forma de comunicarse con el mundo era IRC</p>
 <p>Bueno, es posible conectarse a casi cualquier cosa con bitlbee. Quizas la mayoria ya lo conosca, pero yo no lo conocía asi que aprovecho para escribir.</p>
 <p><strong>Instalación </strong></p>
 <p>Tan simple como:</p>
@@ -86,8 +85,10 @@ account set facebook/nick_source full_name (Older versions)</code></p>
 <p><em>Casi terminamos</em></p>
 <p>Una vez que todas las cuentas están configuradas debemos correr:</p>
 <p><code>account on</code></p>
-<p>Diviértanse!<!--:--></p>
+<p>Diviértanse!</p>
 
-<!-- wp:gallery {"ids":[1393,1394,1395],"linkTo":"none"} -->
-<figure class="wp-block-gallery columns-3 is-cropped"><ul class="blocks-gallery-grid"><li class="blocks-gallery-item"><figure><img src="/images/legacy/2021/07/screenshot-matias40flame-1-1.png?w=1024" alt="" data-id="1393" data-link="https://mkreder.com/screenshot-matias40flame-1-1/" class="wp-image-1393" /></figure></li><li class="blocks-gallery-item"><figure><img src="/images/legacy/2021/07/screenshot-matias40flame-3-1.png?w=1024" alt="" data-id="1394" data-link="https://mkreder.com/screenshot-matias40flame-3-1/" class="wp-image-1394" /></figure></li><li class="blocks-gallery-item"><figure><img src="/images/legacy/2021/07/screenshot-matias40flame-2.png?w=1024" alt="" data-id="1395" data-link="https://mkreder.com/screenshot-matias40flame-2/" class="wp-image-1395" /></figure></li></ul></figure>
-<!-- /wp:gallery -->
+![](/images/legacy/wp/screenshot-matias40flame-1-1.png)
+
+![](/images/legacy/wp/screenshot-matias40flame-3-1.png)
+
+![](/images/legacy/wp/screenshot-matias40flame-2.png)
