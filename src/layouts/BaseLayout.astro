@@ -1,0 +1,331 @@
+---
+import { site } from "../data/site";
+
+type Props = {
+  title?: string;
+  description?: string;
+};
+
+const {
+  title = site.title,
+  description = site.description
+} = Astro.props as Props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="shell nav">
+        <a class="wordmark" href="/">{site.title}</a>
+        <nav>
+          <a href="/blog">Blog</a>
+          <a href="/about">About</a>
+          <a href="/certifications">Certifications</a>
+        </nav>
+      </div>
+    </header>
+    <main class="shell">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="shell footer-grid">
+        <div>
+          <p class="eyebrow">Built for writing in git</p>
+          <p>{site.description}</p>
+        </div>
+        <div class="footer-links">
+          {site.links.map((link) => (
+            <a href={link.href} target="_blank" rel="noreferrer">{link.label}</a>
+          ))}
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --bg: #f6f3ea;
+    --surface: rgba(255, 252, 245, 0.86);
+    --surface-strong: #fffaf0;
+    --text: #1f1c15;
+    --muted: #5f584d;
+    --accent: #c84c28;
+    --accent-soft: #f0a46f;
+    --line: rgba(31, 28, 21, 0.12);
+    --shadow: 0 24px 70px rgba(73, 40, 18, 0.12);
+    --radius: 28px;
+    --radius-sm: 18px;
+    --content-width: 1120px;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    font-family: Georgia, "Times New Roman", serif;
+    background:
+      radial-gradient(circle at top left, rgba(240, 164, 111, 0.2), transparent 28%),
+      radial-gradient(circle at 80% 10%, rgba(200, 76, 40, 0.18), transparent 24%),
+      linear-gradient(180deg, #f4efe4 0%, #f8f5ee 100%);
+    color: var(--text);
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img {
+    max-width: 100%;
+    display: block;
+  }
+
+  .shell {
+    width: min(calc(100% - 2rem), var(--content-width));
+    margin: 0 auto;
+  }
+
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    backdrop-filter: blur(14px);
+    background: rgba(246, 243, 234, 0.78);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 72px;
+    gap: 1rem;
+  }
+
+  .nav nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 0.98rem;
+  }
+
+  .wordmark {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  main.shell {
+    padding: 3rem 0 5rem;
+  }
+
+  .site-footer {
+    border-top: 1px solid var(--line);
+    padding: 2rem 0 3rem;
+    background: rgba(255, 250, 240, 0.65);
+  }
+
+  .footer-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1.4fr 1fr;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 1rem;
+  }
+
+  .eyebrow {
+    margin: 0 0 0.4rem;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--accent);
+  }
+
+  .hero,
+  .panel,
+  .card,
+  .post-card {
+    border: 1px solid var(--line);
+    background: var(--surface);
+    box-shadow: var(--shadow);
+    border-radius: var(--radius);
+  }
+
+  .hero {
+    padding: 2rem;
+  }
+
+  .section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 1rem;
+    margin: 3rem 0 1.2rem;
+  }
+
+  .section-heading h2,
+  .page-header h1 {
+    margin: 0;
+    font-size: clamp(2rem, 4vw, 3.4rem);
+    line-height: 0.95;
+  }
+
+  .lede,
+  .page-header p,
+  .prose p,
+  .post-card p,
+  .card p {
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .grid {
+    display: grid;
+    gap: 1.2rem;
+  }
+
+  .grid-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .grid-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .card,
+  .post-card {
+    padding: 1.3rem;
+  }
+
+  .meta,
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    align-items: center;
+  }
+
+  .meta {
+    font-size: 0.88rem;
+    color: var(--muted);
+  }
+
+  .tag {
+    display: inline-flex;
+    padding: 0.28rem 0.7rem;
+    border-radius: 999px;
+    background: rgba(200, 76, 40, 0.08);
+    border: 1px solid rgba(200, 76, 40, 0.12);
+    font-size: 0.82rem;
+  }
+
+  .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 44px;
+    padding: 0 1rem;
+    border-radius: 999px;
+    border: 1px solid var(--text);
+    background: var(--text);
+    color: #fffaf0;
+  }
+
+  .button.secondary {
+    background: transparent;
+    color: var(--text);
+  }
+
+  .page-header {
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .stats {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-top: 1.5rem;
+  }
+
+  .stats strong {
+    font-size: 2rem;
+    display: block;
+  }
+
+  .prose {
+    max-width: 72ch;
+  }
+
+  .article {
+    padding: 2rem;
+  }
+
+  .article h1 {
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    line-height: 0.95;
+    margin-bottom: 0.6rem;
+  }
+
+  .article-content {
+    margin-top: 2rem;
+  }
+
+  .article-content :where(h2, h3) {
+    margin-top: 2rem;
+    line-height: 1.1;
+  }
+
+  .article-content :where(p, li) {
+    color: var(--muted);
+    line-height: 1.75;
+  }
+
+  .article-content pre {
+    overflow-x: auto;
+    padding: 1rem;
+    border-radius: var(--radius-sm);
+    background: #201c17;
+    color: #fff7ed;
+  }
+
+  @media (max-width: 900px) {
+    .grid-3,
+    .grid-2,
+    .stats,
+    .footer-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .footer-links {
+      justify-content: flex-start;
+    }
+
+    .hero {
+      padding: 1.5rem;
+    }
+  }
+</style>

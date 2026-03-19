@@ -1,0 +1,41 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { formatDate } from "../../lib/format";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("posts", ({ data }) => !data.draft);
+
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post }
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<BaseLayout title={`${post.data.title} | Matias Kreder`} description={post.data.description}>
+  <article class="article hero">
+    <p class="eyebrow">Blog post</p>
+    <h1>{post.data.title}</h1>
+    <div class="meta">
+      <span>{formatDate(post.data.publishedAt)}</span>
+      {post.data.updatedAt && <span>Updated {formatDate(post.data.updatedAt)}</span>}
+      {post.data.legacySourceUrl && (
+        <a href={post.data.legacySourceUrl} target="_blank" rel="noreferrer">Legacy source</a>
+      )}
+    </div>
+    {post.data.tags.length > 0 && (
+      <div class="tag-row">
+        {post.data.tags.map((tag: string) => (
+          <span class="tag">{tag}</span>
+        ))}
+      </div>
+    )}
+    <div class="article-content">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>

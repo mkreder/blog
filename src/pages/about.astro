@@ -1,0 +1,67 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const highlights = [
+  "20+ years across infrastructure, software engineering, architecture, DevOps, and AI product delivery.",
+  "CTO roles at MechanizedAI, Selehann, and now fractional CTO work at Aivilo.",
+  "Hands-on with Python, React, FastAPI, cloud-native AWS systems, and agentic AI workflows.",
+  "Professor at UADE teaching application integration and artificial intelligence."
+];
+---
+
+<BaseLayout title="About | Matias Kreder">
+  <header class="page-header">
+    <p class="eyebrow">About</p>
+    <h1>Technical leadership without losing the builder mindset.</h1>
+    <p>
+      Matias Kreder is a CTO and engineering leader based in Buenos Aires. He works at the
+      intersection of AI products, cloud-native architecture, modernization programs, and
+      practical delivery systems that teams can actually operate.
+    </p>
+  </header>
+
+  <section class="grid grid-2">
+    <article class="card">
+      <p class="eyebrow">Current scope</p>
+      <p>
+        Current work spans GenAI platforms, cloud cost and observability systems, data and AI
+        control planes, modernization accelerators, and product strategy for teams shipping on
+        AWS and Azure.
+      </p>
+      <p>
+        He has built and led distributed teams covering backend, frontend, data, DevOps, and
+        AI engineering, while continuing to contribute directly to architecture and code when
+        it helps unblock delivery.
+      </p>
+    </article>
+    <article class="card">
+      <p class="eyebrow">Employment snapshot</p>
+      <div class="grid">
+        {highlights.map((item) => (
+          <p>{item}</p>
+        ))}
+      </div>
+    </article>
+  </section>
+
+  <section class="section-heading">
+    <div>
+      <p class="eyebrow">Community</p>
+      <h2>Signals beyond the resume</h2>
+    </div>
+  </section>
+  <section class="grid grid-3">
+    <article class="card">
+      <h3>AWS Community Builder</h3>
+      <p>Contributor and speaker around AI engineering, AWS services, and practical cloud delivery.</p>
+    </article>
+    <article class="card">
+      <h3>DeepRacer finalist</h3>
+      <p>Multiple AWS DeepRacer League finals appearances between 2022 and 2025.</p>
+    </article>
+    <article class="card">
+      <h3>Educator</h3>
+      <p>University teaching focused on integration, AI, and hands-on engineering practice.</p>
+    </article>
+  </section>
+</BaseLayout>

@@ -1,0 +1,31 @@
+---
+import { formatDate } from "../lib/format";
+
+type Props = {
+  title: string;
+  description: string;
+  href: string;
+  publishedAt: string | Date;
+  tags?: string[];
+  source?: string;
+};
+
+const { title, description, href, publishedAt, tags = [], source } =
+  Astro.props as Props;
+---
+
+<article class="post-card">
+  <div class="meta">
+    <span>{formatDate(publishedAt)}</span>
+    {source && <span>{source}</span>}
+  </div>
+  <h3><a href={href}>{title}</a></h3>
+  <p>{description}</p>
+  {tags.length > 0 && (
+    <div class="tag-row">
+      {tags.map((tag) => (
+        <span class="tag">{tag}</span>
+      ))}
+    </div>
+  )}
+</article>

@@ -1,0 +1,35 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PostCard from "../../components/PostCard.astro";
+
+const posts = (await getCollection("posts"))
+  .filter((entry) => !entry.data.draft)
+  .sort(
+    (left, right) =>
+      right.data.publishedAt.getTime() - left.data.publishedAt.getTime()
+  );
+---
+
+<BaseLayout title="Blog | Matias Kreder">
+  <header class="page-header">
+    <p class="eyebrow">Blog</p>
+    <h1>Markdown-first publishing with room for legacy content.</h1>
+    <p>
+      New posts live in git under `src/content/posts`. Imported WordPress entries can live in
+      the same collection, and external dev.to posts stay discoverable from the homepage.
+    </p>
+  </header>
+
+  <section class="grid grid-2">
+    {posts.map((post) => (
+      <PostCard
+        title={post.data.title}
+        description={post.data.description}
+        href={`/blog/${post.id}/`}
+        publishedAt={post.data.publishedAt}
+        tags={post.data.tags}
+      />
+    ))}
+  </section>
+</BaseLayout>
