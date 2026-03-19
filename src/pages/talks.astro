@@ -58,7 +58,9 @@ const pageUrl = new URL("/talks/", site.url).toString();
   <section class="section">
     <div class="container">
       <p class="section-label">Community</p>
-      <h1 class="page-title">Talks, workshops, and community<br/>engagement accross the region.</h1>
+      <h1 class="page-title">
+        Talks, workshops, and community<span class="page-break"><br/></span> engagement across the region.
+      </h1>
       <p class="page-desc">
         I'm an AI engineering community builder and user group leader based in Buenos Aires.
         I give talks, run workshops, and collaborate with other communities across Argentina,
@@ -120,7 +122,9 @@ const pageUrl = new URL("/talks/", site.url).toString();
     font-size: clamp(1.75rem, 4vw, 2.5rem);
     font-weight: 700;
     letter-spacing: -0.03em;
+    line-height: 1.1;
     margin-bottom: 0.75rem;
+    text-wrap: balance;
   }
 
   .page-desc {
@@ -142,5 +146,11 @@ const pageUrl = new URL("/talks/", site.url).toString();
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--accent);
+  }
+
+  @media (max-width: 640px) {
+    .page-break {
+      display: none;
+    }
   }
 </style>
