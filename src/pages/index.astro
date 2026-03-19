@@ -44,7 +44,9 @@ const pageUrl = new URL("/", site.url).toString();
   <section class="section">
     <div class="container">
       <p class="hero-greeting">Hey, I'm Matias</p>
-      <h1 class="hero-title">I share ideas about cloud, AI,<br/>and building software<br/>that ships.</h1>
+      <h1 class="hero-title">
+        I share ideas about cloud, AI,<span class="hero-break"><br/></span>and building software<span class="hero-break"><br/></span>that ships.
+      </h1>
       <p class="hero-desc">
         CTO, AWS Community Builder, AWS User Group Leader, DeepRacer finalist, and professor based in Buenos Aires.
       </p>
@@ -158,6 +160,7 @@ const pageUrl = new URL("/", site.url).toString();
     letter-spacing: -0.03em;
     line-height: 1.1;
     margin-bottom: 1rem;
+    text-wrap: balance;
   }
 
   .hero-desc {
@@ -188,5 +191,21 @@ const pageUrl = new URL("/", site.url).toString();
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--accent);
+  }
+
+  @media (max-width: 640px) {
+    .hero-title {
+      font-size: 2.35rem;
+      line-height: 1.08;
+    }
+
+    .hero-break {
+      display: none;
+    }
+
+    .hero-desc {
+      font-size: 1rem;
+      max-width: 100%;
+    }
   }
 </style>
