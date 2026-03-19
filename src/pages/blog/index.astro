@@ -31,7 +31,9 @@ const pageUrl = new URL("/blog/", site.url).toString();
   <section class="section">
     <div class="container">
       <h1 class="archive-title">Archive</h1>
-      <p class="archive-desc">All posts, including legacy content imported from WordPress.</p>
+      <p class="archive-desc">
+        Legacy posts imported from WordPress. New posts are published on dev.to.
+      </p>
 
       {posts.length > 0 ? (
         <div class="post-list">
