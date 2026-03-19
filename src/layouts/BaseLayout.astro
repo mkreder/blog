@@ -61,7 +61,18 @@ const jsonLdItems = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
     <header class="site-header">
       <div class="container nav-bar">
         <a class="logo" href="/">MK</a>
-        <nav>
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-nav"
+          aria-label="Open navigation menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav id="site-nav">
           <a href="/" class:list={[{ active: currentPath === "/" }]}>Home</a>
           <a href="/talks" class:list={[{ active: currentPath === "/talks/" }]}>Community</a>
           <a href="/blog" class:list={[{ active: currentPath.startsWith("/blog") }]}>Archive</a>
@@ -164,6 +175,7 @@ const jsonLdItems = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
     align-items: center;
     justify-content: space-between;
     height: 56px;
+    position: relative;
   }
 
   .logo {
@@ -179,6 +191,27 @@ const jsonLdItems = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
     font-size: 0.875rem;
     font-weight: 500;
     color: var(--text-muted);
+  }
+
+  .menu-toggle {
+    display: none;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--text);
+    cursor: pointer;
+  }
+
+  .menu-toggle span {
+    display: block;
+    width: 18px;
+    height: 2px;
+    margin: 4px auto;
+    border-radius: 999px;
+    background: currentColor;
+    transition: transform 0.2s ease, opacity 0.2s ease;
   }
 
   .nav-bar nav a:hover {
@@ -262,16 +295,46 @@ const jsonLdItems = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
 
   @media (max-width: 860px) {
     .nav-bar {
-      height: auto;
-      padding: 0.875rem 0;
-      align-items: flex-start;
-      flex-direction: column;
-      gap: 0.75rem;
+      height: 56px;
+    }
+
+    .menu-toggle {
+      display: inline-block;
     }
 
     .nav-bar nav {
-      flex-wrap: wrap;
-      gap: 0.75rem 1rem;
+      display: none;
+      position: absolute;
+      top: calc(100% + 0.75rem);
+      right: 0;
+      left: 0;
+      flex-direction: column;
+      gap: 0;
+      padding: 0.75rem 0;
+      background: rgba(13, 13, 13, 0.98);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+    }
+
+    .nav-bar nav a {
+      padding: 0.85rem 1rem;
+    }
+
+    .nav-bar.menu-open nav {
+      display: flex;
+    }
+
+    .nav-bar.menu-open .menu-toggle span:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
+    }
+
+    .nav-bar.menu-open .menu-toggle span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-bar.menu-open .menu-toggle span:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg);
     }
   }
 
@@ -509,10 +572,19 @@ const jsonLdItems = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
 
   /* Responsive */
   @media (max-width: 640px) {
+    .container {
+      padding: 0 1rem;
+    }
+
     .footer-inner {
       flex-direction: column;
+      align-items: flex-start;
       gap: 0.75rem;
-      text-align: center;
+    }
+
+    .footer-links {
+      flex-wrap: wrap;
+      gap: 0.75rem 1rem;
     }
 
     .section {
@@ -520,3 +592,31 @@ const jsonLdItems = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
     }
   }
 </style>
+
+<script>
+  const navBar = document.querySelector(".nav-bar");
+  const menuToggle = document.querySelector(".menu-toggle");
+  const navLinks = document.querySelectorAll("#site-nav a");
+
+  if (navBar instanceof HTMLElement && menuToggle instanceof HTMLButtonElement) {
+    const setMenuOpen = (isOpen) => {
+      navBar.classList.toggle("menu-open", isOpen);
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
+    };
+
+    menuToggle.addEventListener("click", () => {
+      setMenuOpen(!navBar.classList.contains("menu-open"));
+    });
+
+    navLinks.forEach((link) => {
+      link.addEventListener("click", () => setMenuOpen(false));
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 860) {
+        setMenuOpen(false);
+      }
+    });
+  }
+</script>
