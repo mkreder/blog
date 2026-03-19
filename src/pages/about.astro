@@ -1,9 +1,39 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { certifications, site } from "../data/site";
+
+const pageDescription =
+  "About Matias Kreder, CTO, engineering leader, professor, AWS Community Builder, and speaker focused on AI, cloud, and delivery systems.";
+const pageUrl = new URL("/about/", site.url).toString();
 ---
 
-<BaseLayout title="About — Matias Kreder">
+<BaseLayout
+  title="About — Matias Kreder"
+  description={pageDescription}
+  canonicalUrl={pageUrl}
+  ogType="profile"
+  jsonLd={[
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfilePage",
+      name: "About Matias Kreder",
+      url: pageUrl,
+      description: pageDescription
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      name: "Matias Kreder",
+      url: pageUrl,
+      sameAs: site.links.map((link) => link.href),
+      jobTitle: "CTO",
+      homeLocation: {
+        "@type": "Place",
+        name: "Buenos Aires, Argentina"
+      }
+    }
+  ]}
+>
   <section class="section">
     <div class="container">
       <p class="about-label">About</p>

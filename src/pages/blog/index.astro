@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { formatDate } from "../../lib/format";
+import { site } from "../../data/site";
 
 const posts = (await getCollection("posts"))
   .filter((entry) => !entry.data.draft)
@@ -9,9 +10,24 @@ const posts = (await getCollection("posts"))
     (left, right) =>
       right.data.publishedAt.getTime() - left.data.publishedAt.getTime()
   );
+
+const pageDescription =
+  "Archive of blog posts by Matias Kreder, including cloud, AI, engineering, and legacy WordPress content.";
+const pageUrl = new URL("/blog/", site.url).toString();
 ---
 
-<BaseLayout title="Archive — Matias Kreder">
+<BaseLayout
+  title="Archive — Matias Kreder"
+  description={pageDescription}
+  canonicalUrl={pageUrl}
+  jsonLd={{
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Archive — Matias Kreder",
+    url: pageUrl,
+    description: pageDescription
+  }}
+>
   <section class="section">
     <div class="container">
       <h1 class="archive-title">Archive</h1>

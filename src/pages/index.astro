@@ -13,9 +13,28 @@ const posts = (await getCollection("posts"))
   );
 
 const devtoPosts = await getDevtoPosts(6);
+const pageTitle = `${site.title} — Cloud, AI & Engineering`;
+const pageDescription =
+  "Cloud, AI, and engineering writing from Matias Kreder on agentic AI, platform engineering, AWS, and practical software delivery.";
+const pageUrl = new URL("/", site.url).toString();
 ---
 
-<BaseLayout title={`${site.title} — Cloud, AI & Engineering`}>
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonicalUrl={pageUrl}
+  jsonLd={{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: site.title,
+    url: site.url,
+    description: pageDescription,
+    author: {
+      "@type": "Person",
+      name: site.title
+    }
+  }}
+>
   <!-- Hero -->
   <section class="section">
     <div class="container">

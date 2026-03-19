@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Matias Kreder</title>
+  <desc id="desc">Cloud, AI, and engineering blog by Matias Kreder.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0d0d0d" />
+      <stop offset="100%" stop-color="#172033" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <circle cx="1040" cy="120" r="160" fill="#60a5fa" opacity="0.12" />
+  <circle cx="180" cy="520" r="220" fill="#60a5fa" opacity="0.08" />
+  <text x="100" y="210" fill="#60a5fa" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="600">mkreder.com</text>
+  <text x="100" y="310" fill="#e5e5e5" font-family="Inter, Arial, sans-serif" font-size="72" font-weight="700">Matias Kreder</text>
+  <text x="100" y="390" fill="#a0a0a0" font-family="Inter, Arial, sans-serif" font-size="34">Cloud, AI, and modernization engineering</text>
+  <text x="100" y="438" fill="#a0a0a0" font-family="Inter, Arial, sans-serif" font-size="34">with blog posts, archive content, and talks.</text>
+</svg>
