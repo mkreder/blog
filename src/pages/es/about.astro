@@ -1,11 +1,11 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import { certifications, site } from "../data/site";
-import { t } from "../i18n/utils";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { certifications, site } from "../../data/site";
+import { t, formatDateLocalized } from "../../i18n/utils";
 
-const lang = "en";
+const lang = "es";
 const pageDescription = t(lang, "meta.aboutDescription");
-const pageUrl = new URL("/about/", site.url).toString();
+const pageUrl = new URL("/es/about/", site.url).toString();
 ---
 
 <BaseLayout

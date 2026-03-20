@@ -1,5 +1,6 @@
 ---
 import { site } from "../data/site";
+import { t, localizedPath, defaultLang, type Lang } from "../i18n/utils";
 
 type JsonLd = Record<string, unknown>;
 
@@ -11,6 +12,7 @@ type Props = {
   image?: string;
   noindex?: boolean;
   jsonLd?: JsonLd | JsonLd[];
+  lang?: Lang;
 };
 
 const {
@@ -20,7 +22,8 @@ const {
   ogType = "website",
   image,
   noindex = false,
-  jsonLd
+  jsonLd,
+  lang = defaultLang
 } = Astro.props as Props;
 
 const currentPath = Astro.url.pathname;
@@ -28,10 +31,15 @@ const canonicalUrl = canonicalUrlProp ?? new URL(currentPath, site.url).toString
 const socialImageUrl = image ?? new URL("/social-card.svg", site.url).toString();
 const robotsContent = noindex ? "noindex, nofollow" : "index, follow";
 const jsonLdItems = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
+
+// Strip /es prefix to get the base path for hreflang alternates
+const basePath = currentPath.startsWith("/es/") ? currentPath.slice(3) : currentPath === "/es" ? "/" : currentPath;
+const enUrl = new URL(basePath, site.url).toString();
+const esUrl = new URL(`/es${basePath === "/" ? "" : basePath}`, site.url).toString();
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -39,6 +47,9 @@ const jsonLdItems = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
     <meta name="description" content={description} />
     <meta name="robots" content={robotsContent} />
     <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang="en" href={enUrl} />
+    <link rel="alternate" hreflang="es" href={esUrl} />
+    <link rel="alternate" hreflang="x-default" href={enUrl} />
     <meta property="og:site_name" content={site.title} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
@@ -73,13 +84,13 @@ const jsonLdItems = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
           <span></span>
         </button>
         <nav id="site-nav">
-          <a href="/" class:list={[{ active: currentPath === "/" }]}>Home</a>
-          <a href="/talks" class:list={[{ active: currentPath === "/talks/" }]}>Community</a>
-          <a href="/blog" class:list={[{ active: currentPath.startsWith("/blog") }]}>Archive</a>
+          <a href={localizedPath(lang, "/")} class:list={[{ active: currentPath === "/" || currentPath === "/es" || currentPath === "/es/" }]}>{t(lang, "nav.home")}</a>
+          <a href={localizedPath(lang, "/talks")} class:list={[{ active: currentPath.includes("/talks") }]}>{t(lang, "nav.community")}</a>
+          <a href={localizedPath(lang, "/blog")} class:list={[{ active: currentPath.includes("/blog") }]}>{t(lang, "nav.archive")}</a>
           <a href="https://dev.to/mkreder" target="_blank" rel="noreferrer">Dev.to</a>
           <a href="https://github.com/mkreder" target="_blank" rel="noreferrer">GitHub</a>
           <a href="https://www.linkedin.com/in/mkreder" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a href="/about" class:list={[{ active: currentPath === "/about" }]}>About</a>
+          <a href={localizedPath(lang, "/about")} class:list={[{ active: currentPath.includes("/about") }]}>{t(lang, "nav.about")}</a>
         </nav>
       </div>
     </header>

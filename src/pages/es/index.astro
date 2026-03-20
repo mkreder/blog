@@ -1,12 +1,12 @@
 ---
 import { getCollection } from "astro:content";
-import BaseLayout from "../layouts/BaseLayout.astro";
-import { site } from "../data/site";
-import { talks } from "../data/talks";
-import { getDevtoPosts } from "../lib/devto";
-import { t, formatDateLocalized } from "../i18n/utils";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { site } from "../../data/site";
+import { talks } from "../../data/talks";
+import { getDevtoPosts } from "../../lib/devto";
+import { t, formatDateLocalized } from "../../i18n/utils";
 
-const lang = "en";
+const lang = "es";
 
 const posts = (await getCollection("posts"))
   .filter((entry) => !entry.data.draft)
@@ -22,10 +22,11 @@ const featuredTalks = [...talks]
   .slice(0, 6);
 const pageTitle = `${site.title} — ${t(lang, "meta.pageTitle")}`;
 const pageDescription = t(lang, "meta.pageDescription");
-const pageUrl = new URL("/", site.url).toString();
+const pageUrl = new URL("/es/", site.url).toString();
 ---
 
 <BaseLayout
+  lang={lang}
   title={pageTitle}
   description={pageDescription}
   canonicalUrl={pageUrl}
@@ -35,13 +36,10 @@ const pageUrl = new URL("/", site.url).toString();
     name: site.title,
     url: site.url,
     description: pageDescription,
-    author: {
-      "@type": "Person",
-      name: site.title
-    }
+    inLanguage: "es",
+    author: { "@type": "Person", name: site.title }
   }}
 >
-  <!-- Hero -->
   <section class="section">
     <div class="container">
       <p class="hero-greeting">{t(lang, "hero.greeting")}</p>
@@ -52,7 +50,6 @@ const pageUrl = new URL("/", site.url).toString();
     </div>
   </section>
 
-  <!-- Latest from dev.to -->
   <section class="section">
     <div class="container">
       <div class="section-header">
@@ -82,9 +79,7 @@ const pageUrl = new URL("/", site.url).toString();
           ))}
         </div>
       ) : (
-        <p class="empty-state">
-          {t(lang, "feed.unavailable")}
-        </p>
+        <p class="empty-state">{t(lang, "feed.unavailable")}</p>
       )}
     </div>
   </section>
@@ -94,7 +89,7 @@ const pageUrl = new URL("/", site.url).toString();
       <div class="container">
         <div class="section-header">
           <h2>{t(lang, "section.community")}</h2>
-          <a class="section-link" href="/talks">{t(lang, "section.viewAll")} &rarr;</a>
+          <a class="section-link" href="/es/talks">{t(lang, "section.viewAll")} &rarr;</a>
         </div>
         <div class="post-list">
           {featuredTalks.map((talk) => (
@@ -114,13 +109,12 @@ const pageUrl = new URL("/", site.url).toString();
     </section>
   )}
 
-  <!-- Archive -->
   {posts.length > 0 && (
     <section class="section">
       <div class="container">
         <div class="section-header">
           <h2>{t(lang, "section.archive")}</h2>
-          <a class="section-link" href="/blog">{t(lang, "section.viewAll")} &rarr;</a>
+          <a class="section-link" href="/es/blog">{t(lang, "section.viewAll")} &rarr;</a>
         </div>
         <div class="post-list">
           {posts.slice(0, 8).map((post) => (
@@ -145,16 +139,6 @@ const pageUrl = new URL("/", site.url).toString();
   )}
 </BaseLayout>
 
-<script>
-  if (!sessionStorage.getItem("lang-checked")) {
-    sessionStorage.setItem("lang-checked", "1");
-    const saved = localStorage.getItem("lang");
-    if (saved === "es" || (!saved && /^es\b/i.test(navigator.language))) {
-      window.location.replace("/es/");
-    }
-  }
-</script>
-
 <style>
   .hero-greeting {
     font-size: 0.875rem;
@@ -162,7 +146,6 @@ const pageUrl = new URL("/", site.url).toString();
     color: var(--accent);
     margin-bottom: 0.5rem;
   }
-
   .hero-title {
     font-size: clamp(1.75rem, 4vw, 2.75rem);
     font-weight: 700;
@@ -171,14 +154,12 @@ const pageUrl = new URL("/", site.url).toString();
     margin-bottom: 1rem;
     text-wrap: balance;
   }
-
   .hero-desc {
     font-size: 1.0625rem;
     line-height: 1.6;
     color: var(--text-secondary);
     max-width: 540px;
   }
-
   .empty-state {
     font-size: 0.875rem;
     color: var(--text-muted);
@@ -187,13 +168,7 @@ const pageUrl = new URL("/", site.url).toString();
     border-radius: var(--radius);
     text-align: center;
   }
-
-  .talk-item {
-    display: flex;
-    flex-direction: column;
-    gap: 0.45rem;
-  }
-
+  .talk-item { display: flex; flex-direction: column; gap: 0.45rem; }
   .talk-location {
     font-size: 0.75rem;
     font-weight: 600;
@@ -201,20 +176,9 @@ const pageUrl = new URL("/", site.url).toString();
     text-transform: uppercase;
     color: var(--accent);
   }
-
   @media (max-width: 640px) {
-    .hero-title {
-      font-size: 2.35rem;
-      line-height: 1.08;
-    }
-
-    .hero-break {
-      display: none;
-    }
-
-    .hero-desc {
-      font-size: 1rem;
-      max-width: 100%;
-    }
+    .hero-title { font-size: 2.35rem; line-height: 1.08; }
+    .hero-break { display: none; }
+    .hero-desc { font-size: 1rem; max-width: 100%; }
   }
 </style>

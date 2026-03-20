@@ -1,0 +1,95 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { site } from "../../data/site";
+import { talks } from "../../data/talks";
+import { t, formatDateLocalized } from "../../i18n/utils";
+
+const lang = "es";
+
+const sortedTalks = [...talks].sort(
+  (left, right) => new Date(right.date).getTime() - new Date(left.date).getTime()
+);
+const featuredTalks = sortedTalks.filter((talk) => talk.featured).slice(0, 8);
+
+const pageDescription = t(lang, "meta.talksDescription");
+const pageUrl = new URL("/es/talks/", site.url).toString();
+---
+
+<BaseLayout
+  lang={lang}
+  title={`${t(lang, "section.community")} — Matias Kreder`}
+  description={pageDescription}
+  canonicalUrl={pageUrl}
+  jsonLd={{
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: `${t(lang, "section.community")} — Matias Kreder`,
+    url: pageUrl,
+    description: pageDescription
+  }}
+>
+  <section class="section">
+    <div class="container">
+      <p class="section-label">{t(lang, "section.community")}</p>
+      <h1 class="page-title">
+        {t(lang, "talks.title")}<span class="page-break"><br/></span> {t(lang, "talks.titleLine2")}
+      </h1>
+      <p class="page-desc">{t(lang, "talks.desc")}</p>
+    </div>
+  </section>
+
+  {featuredTalks.length > 0 && (
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>{t(lang, "section.highlights")}</h2>
+        </div>
+        <div class="post-list">
+          {featuredTalks.map((talk) => (
+            <a class="post-item talk-item" href={talk.url} target="_blank" rel="noreferrer">
+              <div class="talk-location">{talk.location}</div>
+              <div class="post-item-title">{talk.title}</div>
+              <div class="post-item-desc">{talk.summary}</div>
+              <div class="post-item-meta">
+                <span>{formatDateLocalized(talk.date, lang)}</span>
+                <span>{talk.activityType}</span>
+                <span>{talk.language}</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>{t(lang, "section.timeline")}</h2>
+      </div>
+      <div class="post-list">
+        {sortedTalks.map((talk) => (
+          <a class="post-item talk-item" href={talk.url} target="_blank" rel="noreferrer">
+            <div class="talk-location">{talk.location}</div>
+            <div class="post-item-title">{talk.title}</div>
+            <div class="post-item-desc">{talk.summary}</div>
+            <div class="post-item-meta">
+              <span>{formatDateLocalized(talk.date, lang)}</span>
+              <span>{talk.activityType}</span>
+              <span>{talk.language}</span>
+              {talk.sourceLabel && <span>{talk.sourceLabel}</span>}
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-title { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 0.75rem; text-wrap: balance; }
+  .page-desc { font-size: 1rem; line-height: 1.7; color: var(--text-secondary); max-width: 640px; }
+  .talk-item { display: flex; flex-direction: column; gap: 0.45rem; }
+  .talk-location { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+  @media (max-width: 640px) { .page-break { display: none; } }
+</style>
