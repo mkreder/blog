@@ -1,0 +1,19 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { site } from "../../data/site";
+
+const destination = new URL("/talks/", site.url).toString();
+---
+
+<BaseLayout
+  title="Redirecting — Matias Kreder"
+  description="Redirecting to talks and community activity."
+  canonicalUrl={destination}
+  noindex={true}
+>
+  <meta http-equiv="refresh" content="0;url=/talks/" />
+</BaseLayout>
+
+<script>
+  window.location.replace("/talks/");
+</script>

@@ -1,0 +1,19 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { site } from "../../data/site";
+
+const destination = new URL("/about/", site.url).toString();
+---
+
+<BaseLayout
+  title="Redirecting — Matias Kreder"
+  description="Redirecting to the about page."
+  canonicalUrl={destination}
+  noindex={true}
+>
+  <meta http-equiv="refresh" content="0;url=/about/" />
+</BaseLayout>
+
+<script>
+  window.location.replace("/about/");
+</script>

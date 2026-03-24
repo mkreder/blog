@@ -1,0 +1,50 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { site } from "../data/site";
+
+const destination = new URL("/", site.url).toString();
+---
+
+<BaseLayout
+  title="Redirecting — Matias Kreder"
+  description="Redirecting to the homepage."
+  canonicalUrl={destination}
+  noindex={true}
+>
+  <meta http-equiv="refresh" content="0;url=/" />
+
+  <section class="section">
+    <div class="container not-found">
+      <h1>Redirecting</h1>
+      <p>This page no longer exists. Sending you to the homepage.</p>
+      <p><a href="/">Continue to mkreder.com</a></p>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  window.location.replace("/");
+</script>
+
+<style>
+  .not-found {
+    min-height: 50vh;
+    display: grid;
+    gap: 1rem;
+    align-content: center;
+  }
+
+  .not-found h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    letter-spacing: -0.03em;
+  }
+
+  .not-found p {
+    color: var(--text-secondary);
+  }
+
+  .not-found a {
+    color: var(--accent);
+    font-weight: 600;
+  }
+</style>
