@@ -13,9 +13,9 @@ export const ui = {
     // Hero
     "hero.greeting": "Hey, I'm Matias",
     "hero.title.line1": "I share ideas about cloud, AI,",
-    "hero.title.line2": "and building software.",
+    "hero.title.line2": "and software engineering.",
     "hero.desc":
-      "CTO, AWS Community Builder, AWS User Group Leader, DeepRacer finalist, and professor based in Buenos Aires.",
+      "CTO, AWS AI Hero, AWS User Group Leader, DeepRacer finalist, and professor based in Buenos Aires.",
 
     // Sections
     "section.latest": "Latest posts",
@@ -77,7 +77,7 @@ export const ui = {
     "hero.title.line1": "Comparto ideas sobre cloud, IA,",
     "hero.title.line2": "y desarrollo.",
     "hero.desc":
-      "CTO, AWS Community Builder, AWS User Group leader, finalista DeepRacer y profesor. Vivo en Buenos Aires.",
+      "CTO, AWS AI Hero, AWS User Group leader, finalista DeepRacer y profesor. Vivo en Buenos Aires.",
 
     // Sections
     "section.latest": "Últimos posts",
